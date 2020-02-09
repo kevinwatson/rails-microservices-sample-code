@@ -1,0 +1,18 @@
+version: "3.4"
+
+services:
+  active-publisher:
+    build:
+      context: ./active-publisher
+      dockerfile: ../Dockerfile
+    command: bundle exec puma -C config/puma.rb
+    volumes:
+    - ./active-publisher:/usr/src/service
+    ports:
+    - 3001:3000
+    depends_on:
+    - rabbit
+  rabbit:
+    image: rabbitmq:latest
+    ports:
+    - 5672:5672
