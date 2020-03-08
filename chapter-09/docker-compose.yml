@@ -7,7 +7,7 @@ services:
     - RAILS_LOG_TO_STDOUT=1
     build:
       context: ./active-record
-      dockerfile: ../Dockerfile
+      dockerfile: ../../Dockerfile
     command: bundle exec rpc_server start -p 9399 -o active-record ./config/environment.rb
     volumes:
     - ./active-record:/usr/src/service
@@ -19,7 +19,7 @@ services:
     - RAILS_LOG_TO_STDOUT=1
     build:
       context: ./active-remote
-      dockerfile: ../Dockerfile
+      dockerfile: ../../Dockerfile
     command: bundle exec puma -C config/puma.rb
     ports:
     - 3000:3000
