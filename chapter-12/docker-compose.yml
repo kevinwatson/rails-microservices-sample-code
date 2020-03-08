@@ -4,7 +4,7 @@ services:
   active-publisher:
     build:
       context: ./active-publisher
-      dockerfile: ../Dockerfile
+      dockerfile: ../../Dockerfile
     command: bundle exec puma -C config/puma.rb
     volumes:
     - ./active-publisher:/usr/src/service
