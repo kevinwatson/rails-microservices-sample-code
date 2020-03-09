@@ -1,0 +1,11 @@
+# Usage: docker-compose -f docker-compose-subscriber.yml run action-subscriber bash -c 'bundle exec action_subscriber start'
+
+version: "3.4"
+
+services:
+  action-subscriber:
+    build:
+      context: ./action-subscriber
+      dockerfile: ../../Dockerfile
+    volumes:
+    - ./action-subscriber:/usr/src/service

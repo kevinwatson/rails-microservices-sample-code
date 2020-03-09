@@ -1,0 +1,8 @@
+default: &default
+  host: rabbit
+  username: guest
+  password: guest
+
+development:
+  <<: *default
+

@@ -1,0 +1,37 @@
+# rails-microservices-sample-code/chapter-13/docker-compose.yml
+# Usage: docker-compose up
+
+version: "3.4"
+
+services:
+  active-record-publisher:
+    environment:
+    - PB_SERVER_TYPE=protobuf/nats/runner
+    build:
+      context: ./active-record-publisher
+      dockerfile: ../../Dockerfile
+    command: bundle exec rpc_server start -p 9399 -o active-record-publisher ./config/environment.rb
+    volumes:
+    - ./active-record-publisher:/usr/src/service
+    depends_on:
+    - nats
+    - rabbit
+  active-remote:
+    environment:
+    - PB_CLIENT_TYPE=protobuf/nats/client
+    build:
+      context: ./active-remote
+      dockerfile: ../../Dockerfile
+    command: bundle exec puma -C config/puma.rb
+    ports:
+    - 3002:3000
+    volumes:
+    - ./active-remote:/usr/src/service
+    depends_on:
+    - nats
+  rabbit:
+    image: rabbitmq:latest
+    ports:
+    - 5672:5672
+  nats:
+    image: nats:latest
