@@ -7,5 +7,5 @@ The book where these Ruby on Rails applications are built step-by-step can be fo
 The Docker environment can be started with the following command
 
 ```
-docker-compose -f docker-compose.builder.yml run builder bash
+docker compose -f docker-compose.builder.yml run builder bash
 ```
