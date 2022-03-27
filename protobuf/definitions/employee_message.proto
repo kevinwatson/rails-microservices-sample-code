@@ -22,5 +22,3 @@ service EmployeeMessageService {
   rpc Update (EmployeeMessage) returns (EmployeeMessage);
   rpc Destroy (EmployeeMessage) returns (EmployeeMessage);  
 }
-
-
