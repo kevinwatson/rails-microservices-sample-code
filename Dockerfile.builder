@@ -1,4 +1,4 @@
-FROM ruby:2.6.5
+FROM ruby:3.0.6
 
 RUN apt-get update && apt-get install -qq -y --no-install-recommends \
     build-essential \
@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -qq -y --no-install-recommends \
 
 WORKDIR /home/root
 
-RUN gem install rails -v 5.1.7
+RUN gem install rails -v 6.1
 RUN gem install protobuf
 
 

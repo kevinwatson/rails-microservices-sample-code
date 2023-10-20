@@ -1,4 +1,4 @@
-FROM ruby:2.6.5
+FROM ruby:3.0.6
 
 RUN apt-get update && apt-get install -qq -y --no-install-recommends build-essential nodejs
 
@@ -7,7 +7,7 @@ ENV HOME=$INSTALL_PATH PATH=$INSTALL_PATH/bin:$PATH
 RUN mkdir -p $INSTALL_PATH
 WORKDIR $INSTALL_PATH
 
-RUN gem install rails -v 5.1.7
+RUN gem install rails -v 6.1
 
 ADD Gemfile* ./
 RUN set -ex && bundle install --no-deployment
