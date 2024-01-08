@@ -121,8 +121,10 @@ GEM
       timeout
     net-smtp (0.4.0)
       net-protocol
-    nio4r (2.5.9)
+    nio4r (2.7.0)
     nokogiri (1.15.4-aarch64-linux)
+      racc (~> 1.4)
+    nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
     protobuf (3.10.7)
       activesupport (>= 3.2)
@@ -135,7 +137,7 @@ GEM
       nats-pure (~> 0.3, < 0.4)
       protobuf (~> 3.7, >= 3.7.2)
     public_suffix (5.0.3)
-    puma (5.6.7)
+    puma (5.6.8)
       nio4r (~> 2.0)
     racc (1.7.1)
     rack (2.2.8)
@@ -236,6 +238,7 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  x86_64-linux
 
 DEPENDENCIES
   active_remote
@@ -245,7 +248,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.3)
   protobuf-nats
-  puma (~> 5.0)
+  puma (~> 5.6)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.0)
   sass-rails (>= 6)
